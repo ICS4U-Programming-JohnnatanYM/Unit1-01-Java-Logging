@@ -47,40 +47,24 @@ public final class Logging {
     //try..catch
         try {
             final float logLength = Float.parseFloat(strLogLength);
-        //Write "if"s
-        if (logLength < 0) {
+            //Write "if"s
+            if (logLength < 0) {
             System.out.println("The length of the logs cannot be negative.");
 
-            //Calculate for quarter log length
-            } else if (logLength == QUART_LENGTH) {
-                final float quarterLog = (TRUCK_CAPACITY
-                 / (KG_PER_MASS * logLength));
-                //Display Log amount
-                System.out.print("The amount of logs the truck can carry ");
-                System.out.print("with log length, ");
-                System.out.print(strLogLength + "m, is ");
-                System.out.println(quarterLog + ".");
+                //Calculate for quarter, half or full log length
+            } else if ((logLength == QUART_LENGTH)
+                 || (logLength == HALF_LENGTH) || (logLength == FULL_LENGTH)) {
 
-            //Calculate the half log length
-            } else if (logLength == HALF_LENGTH) {
-                final float halfLog = (TRUCK_CAPACITY
+                final float numLogs = (TRUCK_CAPACITY
                  / (KG_PER_MASS * logLength));
                 //Display Log amount
                 System.out.print("The amount of logs the truck can carry ");
                 System.out.print("with log length, ");
                 System.out.print(strLogLength + "m, is ");
-                System.out.println(halfLog + ".");
-            //Calculate full log length
-            } else if (logLength == FULL_LENGTH) {
-                final float fullLog = (TRUCK_CAPACITY
-                 / (KG_PER_MASS * logLength));
-                //Display Log amount
-                System.out.print("The amount of logs the truck can carry ");
-                System.out.print("with log length, ");
-                System.out.print(strLogLength + "m, is ");
-                System.out.println(fullLog + ".");
+                System.out.printf("%.0f. \n", numLogs);
+
             //If not one of these values, write number not valid
-             } else {
+            } else {
                 System.out.print("The number you have entered is invalid. ");
                 System.out.println("Please try again.");
             }
