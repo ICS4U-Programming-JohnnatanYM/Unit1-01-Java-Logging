@@ -10,6 +10,7 @@ import java.util.Scanner;
  */
 
 public final class Logging {
+
         /**
      * This is to satisfy the style checker.
      *
@@ -26,6 +27,13 @@ public final class Logging {
      * @param args Unused.
      */
     public static void main(final String[] args) {
+        //Declare Constants
+        float QUART_LENGTH = 0.25f;
+        float HALF_LENGTH = 0.5f;
+        float FULL_LENGTH = 1;
+        float TRUCK_CAPACITY = 1100;
+        float KG_PER_MASS = 20;
+
         //Asking user for input
         System.out.println("Welcome, length must be 0.25m, 0.5m, or 1m. ");
         System.out.print("**Logs must all be the same size, ");
@@ -38,14 +46,15 @@ public final class Logging {
 
     //try..catch
         try {
-            final float flLogLength = Float.parseFloat(strLogLength);
+            final float logLength = Float.parseFloat(strLogLength);
         //Write "if"s
-        if (flLogLength < 0) {
+        if (logLength < 0) {
             System.out.println("The length of the logs cannot be negative.");
 
             //Calculate for quarter log length
-            } else if (flLogLength == 0.25) {
-                final float quarterLog = (1100f / (20 * flLogLength));
+            } else if (logLength == QUART_LENGTH) {
+                final float quarterLog = (TRUCK_CAPACITY
+                 / (KG_PER_MASS * logLength));
                 //Display Log amount
                 System.out.print("The amount of logs the truck can carry ");
                 System.out.print("with log length, ");
@@ -53,16 +62,18 @@ public final class Logging {
                 System.out.println(quarterLog + ".");
 
             //Calculate the half log length
-            } else if (flLogLength == 0.50) {
-                final float halfLog = (1100f / (20 * flLogLength));
+            } else if (logLength == HALF_LENGTH) {
+                final float halfLog = (TRUCK_CAPACITY
+                 / (KG_PER_MASS * logLength));
                 //Display Log amount
                 System.out.print("The amount of logs the truck can carry ");
                 System.out.print("with log length, ");
                 System.out.print(strLogLength + "m, is ");
                 System.out.println(halfLog + ".");
             //Calculate full log length
-            } else if (flLogLength == 1) {
-                final float fullLog = (1100f / (20f * flLogLength));
+            } else if (logLength == FULL_LENGTH) {
+                final float fullLog = (TRUCK_CAPACITY
+                 / (KG_PER_MASS * logLength));
                 //Display Log amount
                 System.out.print("The amount of logs the truck can carry ");
                 System.out.print("with log length, ");
